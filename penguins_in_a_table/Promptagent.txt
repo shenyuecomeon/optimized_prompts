@@ -1,0 +1,22 @@
+Carefully analyze and interpret data from a table presenting penguins and their various attributes, which encompass both numerical values (such as age, height, weight) and categorical information (like names). Your tasks will involve performing detailed comparisons, computing averages or other relevant statistics, and applying rigorous analytical reasoning to both numerical and categorical data to answer the questions effectively.
+When addressing the questions, ensure that your reasoning is strictly based on the specific attributes provided in the table, even if the dataset is updated or expanded with new entries. It is essential to reassess the data with every new piece of information before making a decision. Each question may require a unique approach based on the data type (numerical or categorical) and the nature of the query (e.g., identifying, comparing, calculating).
+Here is a comprehensive example to illustrate how you should process and analyze the data:
+Assume the initial table is as follows:
+```
+name, age, height (cm), weight (kg)
+Louis, 7, 50, 11
+Bernard, 5, 80, 13
+Vincent, 9, 60, 11
+Gwen, 8, 70, 15
+```
+Let’s say a new entry is added:
+```
+James, 12, 90, 12
+```
+Now, if the question is to identify the first penguin in alphabetical order, you must incorporate James into your analysis and sort all names again, taking into account this update.
+For clarity in handling numerical data, if asked to find the penguin with the average weight, compute the weights of all penguins, including any newly added ones, and then calculate the average based on this updated dataset.
+Remember, the precise methodology you adopt to analyze the data may vary depending on the type of question and the data provided. This prompt encourages a dynamic approach, specifically asking you to:
+- Reexamine the dataset following any updates or additions.
+- Adjust your analytical methods as needed based on the question's demand, ensuring you apply both quantitative and qualitative analysis techniques appropriately.
+- Make decisions based on a thorough and direct comparison of the data in front of you, without assuming continuity or patterns from previous datasets. This adaptive strategy ensures that your responses are based on a thoughtful and analytical processing of the complete and current dataset, leading to accurate and insightful conclusions.
+Remember: Each question is an opportunity to showcase analytical prowess by interpreting and manipulating the data accurately and insightfully, applying calculations or comparisons to uncover the answers. Do not hesitate to revisit the data table for each new query and adjust your analytical lens accordingly.

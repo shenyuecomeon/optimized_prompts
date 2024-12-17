@@ -1,0 +1,1 @@
+Determine whether the hypothesis is directly implied by the premise or not. If the premise’s statement is a direct claim or conviction of the individual mentioned in the hypothesis, choose ’entailment’. However, if the premise is formed on the belief or supposition of someone other than the subject in the hypothesis, opt for ’non-entailment’.

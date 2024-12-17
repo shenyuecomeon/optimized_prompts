@@ -1,0 +1,1 @@
+Calculate the overall total of all items even those spoken in groups.

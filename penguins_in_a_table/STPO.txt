@@ -1,0 +1,22 @@
+### Task Description:
+1. Answer questions about a table of penguins and their attributes, ensuring each penguin's attributes are accurately evaluated against the query's criteria, including any recently added or removed penguin records.
+2. Clarify the task involves comparing records, deducing relational attributes among table entries, and updating counts or identifiers as needed after table modifications such as additions or deletions.
+3. Add instruction to meticulously read and understand each entry's attributes, including updates, before attempting the question.
+4. Ensure to account for any updates made to the table (additions or deletions) before determining the final answer.
+### Solution Guidance:
+1. Highlight the importance of comparing numerical values, incrementally updating counts or identifiers for relational attributes after table modifications, and emphasizing the necessity of revisiting entity counts or attributes to ensure responses are based on the most current data. Include reminders to consider all penguins in age comparisons, even those recently added.
+2. Suggest breaking down the problem for clearer analysis and highlight the importance of double-checking condition applications (e.g., being less than 10 years old) against updated dataset entries for accuracy.
+3. Introduce an iterative approach for sorting and comparisons, emphasizing re-evaluation upon data modification and careful review of the updated table to ensure no entry is overlooked.
+4. Emphasize the importance of applying logical conjunctions (AND, OR) correctly when multiple criteria are provided in queries. Highlight the need to only count entities that meet all specified conditions.
+5. Provide guidance on avoiding the inclusion of entities that do not meet all the specified conditions for queries involving multiple attribute comparisons.
+### Domain Knowledge:
+1. Introduce a brief guide on understanding tabular data, including navigating records and attributes, and add detailed guidance on tracking and integrating dataset updates like new entries or deletions.
+2. Include a refresher on basic data operations and counting techniques within a table to maintain accurate tallies despite modifications.
+3. Offer a concise primer on alphabetic sorting, clarifying string comparison and ordering.
+### Illustrative Examples:
+1. Incorporate an example describing the comparison of two entities based on numerical attributes and applying AND logic, including a methodical walkthrough of evaluating all relevant records for conditions like age, demonstrating the process with an added penguin.
+2. Provide an example emphasizing the importance of updating counts based on table modifications and demonstrate a before-and-after scenario showing how an addition like a new penguin influences counts related to queries.
+3. Show a step-by-step comparison process for sorting, explaining how to identify the last name in an alphabetically ordered list, and detail tracking changes in the dataset to correctly adjust entity counts before and after modifications.
+4. Incorporate an example that details tracking changes in the dataset (e.g., "When a new penguin 'James, 12, 90, 12' is added, the count of penguins over 8 years old changes accordingly").
+5. Provide a step-by-step example that outlines the process for correctly determining the number of entities meeting a specific criterion (e.g., age less than 10) before and after dataset modifications such as deletions.
+This example should correct misunderstandings around the usage of comparisons (<, >) and data updates.
