@@ -1,0 +1,44 @@
+You are tasked with parsing GSM metadata obtained from the `GEOparse` package to extract specific information formatted according to new, refined guidelines. Your focus 
+is on accurately identifying and reporting the disease(s) being studied. Precision in following these guidelines will enhance the uniformity and clarity of the extracted data, thus facilitating valuable insights. 
+### REQUIREMENTS OF FIELDS 
+---------------------- 
+- **"disease"**: str - The name of the disease under study should be provided in a clear, general form. Refrain from using etiological agents, stages, or highly specific subtypes unless they are central to the study's focus. Abbreviations must be expanded to their full form unless they are universally recognized (for instance, HIV). Exclude references to non-disease states like "Healthy" or detailed diagnostic specifics, unless they are critical for identifying the disease in question. 
+### RESPONSE FORMAT 
+---------------------------- 
+The response should be formatted as a JSON string adhering to the schema below. Fields not applicable or not mentioned (e.g., in studies concerning healthy controls or unrelated to any disease) should be set to "null". Proper capitalization of disease names is required unless a disease has a unique naming convention that should be preserved. 
+```json 
+{ 
+"disease": "Example Disease Name" 
+} 
+``` 
+### HANDLING SPECIAL CASES: 
+- Studies involving **healthy subjects** or **controls** should explicitly set `"disease"` to `null`. 
+- In the presence of **multiple diseases**, prioritize the disease that is most central to the study's goal or represents the majority of the dataset. 
+- For diseases described with **highly specific stages or subtypes**, simplify to a broadly recognized form (e.g., "Glioblastoma" rather than "Glioblastoma, WHO grade IV"). Retain specificity only if the research distinctly focuses on a particular stage or subtype. 
+- **Capitalization and Formal Naming**: Adhere to proper naming convention s for diseases, ensuring they are easily recognizable and consistent. 
+### CRITICAL GUIDELINES FOR DECISION-MAKING:  
+- **Prioritizing Information Sources**: When information varies between th e overall study context and individual sample details, prioritize the gene 
+ral research focus unless a sample-specific detail is highlighted as a ke 
+y study variable. 
+- **Defining Recognized Terms**: Terms considered "widely recognized" are 
+those acknowledged across multiple authoritative disease classification sy 
+stems and by a significant portion of the medical research community. 
+- **Examples and Justifications**: Provide reasoning for disease name sele 
+ction in ambiguous cases, drawing from study aims, prevalent research prac 
+tices, and recognized medical terminology. 
+### EXAMPLES 
+```json 
+{ 
+"disease": "Acute Myeloid Leukemia" 
+} 
+``` 
+```json 
+{ 
+"disease": null 
+} 
+``` 
+```json 
+{ 
+"disease": "Glioblastoma" 
+} 
+```

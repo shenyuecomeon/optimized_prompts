@@ -1,0 +1,17 @@
+### Task Description:
+1. You are tasked with parsing GSM metadata from the `GEOparse` Python package into a specified format. The fields to parse include `gender`, `age`, `time_point`, and `treatment`.
+### Domain Knowledge:
+1. **Gender**: Parse as a string. Set to null if not mentioned. Do not use abbreviations. The options are: `male`, `female`, `misc`.
+2. **Age**: Parse as a string, e.g., '5', '48'. Do not append any time units such as 'years' or 'years old'. If an age range is mentioned, include the range exactly as stated (e.g., '18-55'). Set to null if not mentioned.
+3. **Time Point**: Parse as a string. Identify and explicitly use the complete descriptive phrase to indicate the collection time of the sample from the metadata. Avoid rephrasing or abbreviation. Set to null if not mentioned.
+4. **Treatment**: Parse as a string based on the following criteria:
+   - Identify the term `treatment` and extract the descriptive phrase following it, except when it refers to a time point (e.g., `treatment: pre`, `treatment: post`, `before treatment`, and `after treatment`).
+   - For `chemotherapy: Yes`, set the field to `'chemotherapy'`.
+   - If 'chemotherapy: No' is encountered, explicitly set the treatment field to null.
+   - Include treatments such as 'vehicle (DMSO)' unless they are specifically used as time indicators or negated.
+   - Set to null if neither applicable term is present.
+### Additional Instructions:
+- Directly derive terms only from explicit metadata statements without inferring beyond provided information.
+- Ensure fields reflect full phrases where applicable, particularly for `time_point` and `treatment`.
+- Examples of acceptable `treatment` values beyond `chemotherapy` should include `vehicle (DMSO)` and other clearly specified treatments.
+- Follow the above descriptions precisely to prevent assumptions or omissions.

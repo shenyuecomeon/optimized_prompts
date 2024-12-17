@@ -1,0 +1,23 @@
+### Task Description:
+1. Parse GSM metadata using the `GEOparse` package to extract `tissue`, `tumor_grade`, and `sample_site`, following the specific guidelines provided.
+### Domain Knowledge:
+1. "tissue": str, from which tissue the sample was taken. The option list is: `Adrenal Gland`, `Abdominal cavity`, `Bile Duct`, `Bladder`, `Bone`, `Bone Marrow`, `Brain`, `Breast`, `Cervix`, `Colorectum`, `Culture in vitro`, `Esophagus`, `Eye`, `Fluid`, `Head and Neck`, `Kidney`, `Liver`, `Lung`, `Lymph Nodes`, `Nervous System`, `Ovary`, `Organoid`, `Pancreas`, `Pelvic`, `Peripheral Blood`, `Pleura`, `Prostate`, `Skin`, `Soft Tissue`, `Small Intestine`, `Stomach`, `Testis`, `Thymus`, `Thoracic cavity`, `Thyroid`, `Uterus`
+"tumor_grade": str,  If the keyword 'stage' is present, extract the corresponding value of stage. The tumor_grade may be denoted as 'WHO Grade X' or 'FIGO X'. Populate this field only when these specific terms are encountered. If no such terms are mentioned, set the value to null. 
+"sample_site": str, Location where the sample was taken. Set to null if not mentioned.
+2. Squamous cell carcinoma typically refers to `Skin` unless explicitly stated otherwise. Utilize the carcinoma type when the sample tissue isn't explicitly mentioned.
+3. Recognize "PBMC" as equivalent to "Peripheral Blood" and clarify that acute slices should be identified as "Culture in vitro".
+4. Inferring "Organoid" from context of descriptions like "organoid setup" or series with organoid studies.
+5. Emphasize the distinction between "Culture in vitro" and "Organoid" to avoid misclassification.
+### Solution Guidance:
+1. Include synonym recognition, particularly for common scientific abbreviations and their full forms, using context clues.
+2. Explicitly match sample locations in `Sample_source_name_ch` for `sample_site` and avoid setting this from general sample descriptions. In cases mentioning grades, ensure the format includes known qualifiers such as "WHO" or "FIGO".
+3. Implement logical inference rules: when no explicit tissue is mentioned, leverage known associations of carcinoma types to common tissues.
+4. Ensure recognized tissue descriptions within experimental setups (e.g., organoid) guide appropriate categorization.
+5. Implement checks for specific terms indicating "Culture in vitro" versus "Organoid" in metadata descriptions and characteristics.
+### Illustrative Examples:
+1. For "Sample_characteristics_ch": "Stage: IV, tissue: Patient primary lung adenocarcinoma metastasis to BRAIN" -> Correct output: {"tissue": "Brain", "tumor_grade": "IV", "sample_site": null}
+2. For "Sample_characteristics_ch": "Stage: na, tissue: Patient adjacent non-tumour involved lung" -> Correct output: {"tissue": "Lung", "tumor_grade": null, "sample_site": null}
+3. For "Sample_source_name_ch": "Squamous cell carcinoma tumor" -> Correct output: {"tissue": "Skin", "tumor_grade": null, "sample_site": null}.
+4. For "Sample_source_name_ch": "PBMC," output: {"tissue": "Peripheral Blood", "tumor_grade": null, "sample_site": null}.
+5. For samples with "Glioblastoma organoid," output should be {"tissue": "Organoid", "tumor_grade": null, "sample_site": null}.
+6. For "Sample_characteristics_ch": "tissue: acute slice culture of glioma resection" \u2013 Correct output: {"tissue": "Culture in vitro", "tumor_grade": "WHO Grade IV", "sample_site": "right parietal"}

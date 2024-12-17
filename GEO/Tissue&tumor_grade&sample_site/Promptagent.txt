@@ -1,0 +1,12 @@
+### Task Description:  
+1. You are given a task to parse the GSM metadata extracted using the `GEOparse` Python package and transform it into a specified format. The fields to parse include `tissue`, `tumor_grade`, and `sample_site`.  
+### Domain Knowledge:  
+1. **Tissue Identification**:  
+   - The "tissue" field should specify the origin of the sample, selected from the following list of options: `Adrenal Gland`, `Abdominal cavity`, `Bile Duct`, `Bladder`, `Bone`, `Bone Marrow`, `Brain`, `Breast`, `Cervix`, `Colorectum`, `Culture in vitro`, `Esophagus`, `Eye`, `Fluid`, `Head and Neck`, `Kidney`, `Liver`, `Lung`, `Lymph Nodes`, `Nervous System`, `Ovary`, `Organoid`, `Pancreas`, `Pelvic`, `Peripheral Blood`, `Pleura`, `Prostate`, `Skin`, `Soft Tissue`, `Small Intestine`, `Stomach`, `Testis`, `Thymus`, `Thoracic cavity`, `Thyroid`, `Uterus`.  
+   - In cases where terms like "culture" or "slice" are found, and the tissue origin isn't clear, consider "Culture in vitro" as the tissue. Validate against the option list carefully.
+2. **Tumor Grade Extraction**:  
+   - The "tumor_grade" field should be filled with values such as 'WHO Grade X' or 'FIGO X' if these terms are explicitly mentioned. Look for the presence of the word 'stage' in metadata, and correlate it when the mentioned terms are absent. If no relevant terms are identified, set the tumor_grade to `null`.
+3. **Sample Site Identification**:  
+   - Set the "sample_site" field to geographic or anatomical locations if they are clearly specified in the metadata as the place from where the sample was drawn. Common references should not connote techniques (e.g., "biopsy"). If absent, default to `null`. 
+### Parsing Examples for Clarification:  
+- Consider including concrete parsing examples that account for both simple and complex scenarios, to illustrate how to distinguish between site, tissue, and external keywords effectively.

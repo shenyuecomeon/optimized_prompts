@@ -1,0 +1,7 @@
+### Task Description:
+1. You are given a task to parse the GSM metadata from `GEOparse` python package to a given format. The fields to parse include `gender`, `age`, `time_point`, `treatment`
+### Domain Knowledge:
+1. "gender": str, set to null if not mentioned. Do not use abbreviations. The option list is: `male`, `female`, `misc`
+"age": str, note the type is string, e.g., '5','48'. Do not append any time units such as 'years' or 'years old'. set to null if not mentioned.
+"time_point": str, Identify the collection time of the sample.
+"treatment": str, Set this value only when the terms `treatment` or `chemotherapy` are explicitly stated; However, there are two exceptions: 1. Ignore instances phrases which contain `treatment` but is in fact not a treatment and refer to `time point`, e.g., `treatment: pre`, `treatment: post`, `before treatment` and `after treatment`. 2. If you encounter 'chemotherapy: No', set the treatment field to null. If neither term is present, the default value should be set to null.

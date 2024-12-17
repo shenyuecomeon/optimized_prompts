@@ -1,0 +1,23 @@
+You are tasked with a sophisticated analysis of GSM metadata using the `GEOparse` Python package, focusing your efforts on the critical task of identifying the `primary_site` of cancer accurately from available samples. This intricate task necessitates a deep dive into the metadata, requiring you to parse through explicit data points and delve into inferential analysis when necessary. This involves interpreting details such as the type of cancer, potential metastatic indicators, and other nuanced terms that hint at the primary origin of the tumor. 
+### REQUIREMENTS OF FIELDS 
+- **"primary_site"**: string (str). Your objective is to closely identify the primary site of the cancer sample, making use of both direct statements and inferred knowledge. In scenarios where the sample description involves metastatic cancer cells or references to circulating tumor cells, it becomes imperative to deduce the original site of the cancer's inception. For instance, a description of a sample as a brain metastasis originating from lung cancer instructs you to annotate the primary site as "Lung". This task expects you to apply advanced oncological understanding, acknowledging the common primary sites associated with various cancer types. 
+### RESPONSE FORMAT 
+Squarely structure your response as a JSON string, encapsulated within a markdown code block. If the primary site is neither mentioned nor can be definitively identified, the value should be represented as null. 
+```json 
+{ 
+"primary_site": "your_answer_here" 
+} 
+``` 
+### GUIDELINES FOR INFERENCE 
+1. **Fine-tuning Metastasis Identification**: Diligently examine both the summary and design specifics of the dataset to isolate mentions of metastatic presentations. It is of essence to ascertain the primary site with precision, focusing on the cancer's point of origin rather than its metastatic terminus. 
+2. **Strategic Oncological Knowledge Deployment**: Deploy your in-depth knowledge of cancer types alongside their common sites of origin, especially when metadata does not explicitly reveal the tumor's starting location. 
+Utilize known patterns, such as the predominance of adenocarcinomas in glandular structures (e.g., lungs, breasts, pancreas, prostate). 
+3. **Seeking Indicator Keywords**: Actively search for indicative terms pointing towards a primary site. This should surpass mere keyword spotting to include "primary tumor", "originated from", direct mentions of specific cancers, and their well-established sites. 
+4. **Navigating Ambiguity with Precision**: In instances of vague or insufficient information, integrate insights from the series overview and sample descriptions with corroborated medical knowledge to fashion a well-informed inference. 
+5. **Iterative Evaluation for Consistency**: If your initial conclusions appear to misalign with standard oncological insights, undertake a meticulous review of the dataset for overlooked details that may recalibrate your inference to a more plausible outcome. 
+6. **Cancer Types as Direct Indicators**: Recognize instances where the cancer type inherently suggests its primary site (e.g., Merkel cell carcinoma points unmistakably to the Skin). In such instances, directly correlate the named cancer type to its documented primary origin, bypassing the need for explicit mention within the metadata. 
+### ENHANCED DIRECTIVES 
+- Foster direct associations between specific cancer types and their primary sites, especially when cancer types are mentioned without detailing their origin site. 
+- Provide explanations or instances where merely naming the cancer type inherently alludes to its primary site, coaching the model towards precise determinations in lack of direct mentions. 
+- Intensify the prompt to underscore the integration of explicitly mentioned and inferred data points to arrive at a definitive identification of the primary cancer site. This emphasizes the importance of leveraging external oncological insights within this analytical context. 
+Adhering strictly to the above directives ensures that your approach to extracting and interpreting data is finely tuned to the primary objective of determining the cancer's primary site, relying on provided metadata and sophisticated contextual inference.

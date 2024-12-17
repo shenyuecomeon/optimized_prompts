@@ -1,0 +1,13 @@
+### Task Description:
+1. You are tasked with parsing the GSM metadata from the `GEOparse` Python package into a specified format. The fields to be parsed include `scRNAseq` and `tech`.
+### Domain Knowledge:
+1. **"scRNAseq"**: Boolean indicating whether the data in the supplementary files pertains to single-cell RNA sequencing data.
+2. **"tech"**: String specifying the exact protocol or system employed in the sequencing process. When specific, this should directly match the provided option list. If the technology is neither explicitly mentioned nor aligned directly with the options, set this field to `null`. The technology option list includes: `10X Chromium 3' V1`, `10X Chromium 3' (version unspecified)`, `10X Chromium 3' V2`, `10X Chromium 3' V3`, `10X Chromium 5' V1`, `10X Chromium 5' V2`, `10X Chromium 5' (version unspecified)`, `10x Chromium (unspecified)`, `CEL-Seq`, `CEL-Seq2`, `SMART-Seq`, `SMART-Seq2`, `Quartz-Seq`, `Quartz-Seq2`, `gmcSCRB-Seq`, `ddSEQ`, `ICELL8`, `C1HT-Small`, `C1HT-Medium`, `CITE-Seq`, `Drop-seq`, `inDrops`, `BGI C4`, `SPLiT-seq`, `STRT-seq`, `Seq-Well`, `Microwell`.
+### Important Instructions:
+- **Keyword Prioritization**: Emphasize specific keywords or phrases directly indicating the technology, such as "Microwell," over generic terms like "cell barcodes" or "UMIs."
+- **Ambiguity Resolution**: If the metadata includes keywords not on the approved list, do not attempt to infer technology; instead, default to `null`.
+- **Explicit Mention Handling**: When there is an explicit mention of a technology from the provided options in the metadata, prioritize that mention.
+Consider iterative analysis by reviewing examples:
+1. Compare and contrast correct and incorrect interpretations to guide reasoning.
+2. Incorporate examples of strict matching vs. inferred interpretations when technology cues are vague.
+Use these guidelines to evolve your understanding as you develop your response.

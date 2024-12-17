@@ -1,0 +1,17 @@
+### Task Description:
+1. You are given a task to parse the GSM metadata from the `GEOparse` python package into a specified format. The fields to parse include `scRNAseq` to check if the data is single-cell RNA, and `tech`, specifying the exact sequencing protocol or system employed.
+2. Clearly delineate that the task involves identifying the most direct match for the `tech` field based solely on explicit protocol or technology names.
+### Domain Knowledge:
+1. "scRNAseq": bool, wether the provided data in supplementary files is **single-cell** **RNA** data.
+"tech": str, specifies the exact protocol or system employed in the sequencing process. The option list is: `10X Chromium 3' V1`, `10X Chromium 3' (version unspecified)`, `10X Chromium 3' V2`, `10X Chromium 3' V3`, `10X Chromium 5' V1`, `10X Chromium 5' V2`, `10X Chromium 5' (version unspecified)`, `10x Chromium (unspecified)`, `CEL-Seq`, `CEL-Seq2`, `SMART-Seq`, `SMART-Seq2`, `Quartz-Seq`, `Quartz-Seq2`, `gmcSCRB-Seq`, `ddSEQ`, `ICELL8`, `C1HT-Small`, `C1HT-Medium`, `CITE-Seq`, `Drop-seq`, `inDrops`, `BGI C4`, `SPLiT-seq`, `STRT-seq`, `Seq-Well`, `Microwell`
+2. Define that the `tech` field should only be populated with listed options when explicitly mentioned or inferred with clarity. If ambiguous, default to `null`.
+3. Add information that "CITE-seq" combines cell surface protein data collection with scRNA-seq.
+### Solution Guidance:
+1. Instruct to thoroughly analyze sample preparation and processing descriptions to accurately infer the most likely technology using keywords. The model should prioritize technology identification explicitly mentioned in data processing or protocol sections. Defer to "version unspecified" unless the specific version is explicitly mentioned. Assign \u201ctech\u201d as `null` if the technology is ambiguous or relates to non-RNA-seq experiments like ATAC-seq.
+2. Assign \u201ctech\u201d as `null` if the technology is ambiguous or relates to non-RNA-seq experiments like ATAC-seq.
+3. Include guidelines for resolving conflicts when multiple technologies are mentioned, for example, prioritize more specific technologies if one is part of another.
+### Illustrative Examples:
+1. For Example 1, highlight the decision-making process focusing on identifying and correctly mapping keywords related to "Microwell."
+2. For Example 3, illustrate how to default to "version unspecified" when no specific protocol version is stated.
+3. Highlight Example: In scenarios similar to the given sample, reinforce the necessity of selecting "10X Chromium 3' (version unspecified)" when a specific version isn't listed despite the presence of related processing information.
+4. Example: If "CITE-seq" is listed alongside "10X Genomics," select "CITE-Seq" for `tech` despite additional technology matches.

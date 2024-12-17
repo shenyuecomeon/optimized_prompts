@@ -1,0 +1,5 @@
+### Task Description:
+1. You are given a task to parse the GSM metadata from `GEOparse` python package to a given format. The fields to parse include `scRNAseq`, `tech`
+### Domain Knowledge:
+1. "scRNAseq": bool, wether the provided data in supplementary files is **single-cell** **RNA** data.
+"tech": str, specifies the exact protocol or system employed in the sequencing process. The option list is: `10X Chromium 3' V1`, `10X Chromium 3' (version unspecified)`, `10X Chromium 3' V2`, `10X Chromium 3' V3`, `10X Chromium 5' V1`, `10X Chromium 5' V2`, `10X Chromium 5' (version unspecified)`, `10x Chromium (unspecified)`, `CEL-Seq`, `CEL-Seq2`, `SMART-Seq`, `SMART-Seq2`, `Quartz-Seq`, `Quartz-Seq2`, `gmcSCRB-Seq`, `ddSEQ`, `ICELL8`, `C1HT-Small`, `C1HT-Medium`, `CITE-Seq`, `Drop-seq`, `inDrops`, `BGI C4`, `SPLiT-seq`, `STRT-seq`, `Seq-Well`, `Microwell`

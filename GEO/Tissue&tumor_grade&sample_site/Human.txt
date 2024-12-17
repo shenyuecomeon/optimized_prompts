@@ -1,0 +1,6 @@
+### Task Description:
+1. You are given a task to parse the GSM metadata from `GEOparse` python package to a given format. The fields to parse include `tissue`, `tumor_grade`, `sample_site`
+### Domain Knowledge:
+1. "tissue": str, from which tissue the sample was taken. The option list is: `Adrenal Gland`, `Abdominal cavity`, `Bile Duct`, `Bladder`, `Bone`, `Bone Marrow`, `Brain`, `Breast`, `Cervix`, `Colorectum`, `Culture in vitro`, `Esophagus`, `Eye`, `Fluid`, `Head and Neck`, `Kidney`, `Liver`, `Lung`, `Lymph Nodes`, `Nervous System`, `Ovary`, `Organoid`, `Pancreas`, `Pelvic`, `Peripheral Blood`, `Pleura`, `Prostate`, `Skin`, `Soft Tissue`, `Small Intestine`, `Stomach`, `Testis`, `Thymus`, `Thoracic cavity`, `Thyroid`, `Uterus`
+"tumor_grade": str,  If the keyword 'stage' is present, extract the corresponding value of stage. The tumor_grade may be denoted as 'WHO Grade X' or 'FIGO X'. Populate this field only when these specific terms are encountered. If no such terms are mentioned, set the value to null. 
+"sample_site": str, Location where the sample was taken. Set to null if not mentioned.

@@ -1,0 +1,19 @@
+### Task Description:
+1. Parse the `treatment` field not only from keywords in `Sample_characteristics_ch1` but also considering the series description or general metadata context.
+2. Ensure parsing includes full phrases related to `time_point` and `treatment`, maintaining exact terminology from the metadata.
+3. Parse all relevant metadata fields including identifiers like `D00`, `D31` from titles, linking them appropriately to `time_point`.
+4. Parse identifiers like `D00`, `D31` only when explicitly contextualized as `time_point` in other metadata fields to avoid misassignments from titles alone.
+### Domain Knowledge:
+1. "gender": str, set to null if not mentioned. Do not use abbreviations. The option list is: `male`, `female`, `misc`. "age": str, note the type is string, e.g., '5','48'. Do not append any time units such as 'years' or 'years old'. Set to null if not mentioned. "time_point": str, Identify the collection time of the sample, using the exact phrasing from the metadata. "treatment": str, Input the full term exactly as described, particularly with treatments like "chemotherapy". Set this value only when the terms `treatment` or `chemotherapy` are explicitly stated. However, there are two exceptions: 1. Ignore phrases which contain `treatment` but refer to `time point`, e.g., `treatment: pre`, `treatment: post`, `before treatment` and `after treatment`. 2. If you encounter 'chemotherapy: No', set the treatment field to null. If neither term is present, the default value should be set to null.
+2. Introduce the concept that identifiers with patterns such as "D00" or "D31" should be validated against metadata context to confirm their indication of `time_point`. Also, consider that sample titles may contain identifiers, but metadata validation should determine their significance.
+3. "treatment": str, must include comprehensive treatments explicitly described in metadata beyond just keywords like "chemotherapy".
+### Illustrative Examples:
+1. Example for `treatment`: If you encounter "chemotherapy: Yes", return `"treatment": "chemotherapy"`.
+2. Example for `time_point`: If metadata states "samples are collected before treatment", return `"time_point": "samples are collected before treatment"`.
+3. For the entry "treatment: pre", return `"time_point": "treatment: pre"`, since it is phrased as a time indicator.
+4. For "Series_overall_design: ... T cell therapy and avelumab ...", extract and return `"treatment": "T cell therapy and avelumab (anti-PD-L1), from a time point of late immunotherapy resistance"`.
+5. If `Sample_title` contains "D6T1" but metadata lacks other references to "D6T1" as a `time_point`, return `"time_point": null`.
+### Solution Guidance:
+1. Always cross-reference extracted phrases with metadata to ensure precision in terminology and contextual setting.
+2. Ensure the extraction of the `time_point` uses the complete phrase in the metadata, including prefixes (e.g., "treatment:"). Also, examine general descriptions or remarks beyond structured fields for comprehensive treatment details.
+3. Cross-check identifiers in sample titles with corresponding metadata fields for context before concluding they represent `time_point`. Use explicit metadata confirmation to avoid incorrect assumptions based solely on data patterns.
