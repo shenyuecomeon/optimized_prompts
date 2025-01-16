@@ -1,0 +1,19 @@
+### Task Description:
+1. Your task is to accurately count the total number of items in a given list of objects.
+### Domain Knowledge:
+1. Counting involves correctly identifying each item and adding their quantities properly.
+2. Attention to detail is crucial to ensure that every item is accounted for and accurately summed.
+3. Clarify that counting must adhere precisely to the mentioned categories or specifications, identifying and segregating items based on pertinent characteristics, including singular and plural forms, and including every instance as adding to the total tally. 
+4. Introduce a verification step after the initial count to confirm accuracy and a filtering step to set aside items unrelated to the query's focus before proceeding with any counting activity.
+### Solution Guidance:
+1. Identify and list each unique item or group in the given scenario.
+2. Count the quantity of each listed item.
+3. Add the quantities of all items from Step 2.
+4. Double-check your addition to ensure accuracy.
+### Illustrative Examples:
+1. Example scenario: "I have 3 apples, 2 bananas, 1 orange, and 4 grapes." 
+   - Correct process:
+     - List: apples (3), bananas (2), orange (1), grapes (4)
+     - Addition: 3 + 2 + 1 + 4 = 10
+     - Outcome: Total fruits = 10
+2. Misconception: Skipping over an item or miscalculating during addition can lead to incorrect totals. Ensure that all listed items are included in the addition process.
